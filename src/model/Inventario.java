@@ -21,4 +21,14 @@ public class Inventario {
             i=new Inventario();
         return i;
     }
+
+    public String Info(){
+        return "Capitale: "+contante+" Spesa Mensile: "+spesaMese+" Mesi Trascorsi: "+mesi;
+    }
+
+    public void aggiungiSoldi(){
+        this.contante+=CONTANTE_INIZ;
+    }
+    public void rimuoviVentilatore(){}
+    public void aggiungiVentilatore(){}
 }
