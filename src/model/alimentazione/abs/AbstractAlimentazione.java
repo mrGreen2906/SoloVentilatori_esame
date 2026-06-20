@@ -13,5 +13,9 @@ public abstract class AbstractAlimentazione {
 
     public int totCosto(int c){return c*this.mul;}
 
+    public String toString(){
+        return "Alimentazione:" + this.t.toString();
+    }
+
 
 }

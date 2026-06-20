@@ -26,13 +26,43 @@ public class Inventario {
         return "Capitale: "+contante+" Spesa Mensile: "+spesaMese+" Mesi Trascorsi: "+mesi;
     }
 
+    public void aggiornaMese(){
+        this.mesi+=1;
+        this.contante-= this.spesaMese;
+    }
     public void aggiungiSoldi(){
         this.contante+=CONTANTE_INIZ;
     }
+
+    public int getContante() {
+        return contante;
+    }
+
+    public int getMesi() {
+        return mesi;
+    }
+
+    public int getSpesaMese() {
+        return spesaMese;
+    }
+
+    public void setSpesaMese(int spesaMese) {
+        this.spesaMese = spesaMese;
+    }
+
+    public void aggiungiVentilatore(FunInterface i){
+        this.setSpesaMese(i.getCosto());
+        this.lista.add(i);
+
+    }
+
     public void rimuoviVentilatore(FunInterface i){
+        this.setSpesaMese(-i.getCosto());
         this.lista.remove(i);
     }
-    public void aggiungiVentilatore(FunInterface i){
-        this.lista.add(i);
+
+    public ArrayList<FunInterface> getLista() {
+        return lista;
     }
+
 }
