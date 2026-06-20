@@ -9,7 +9,7 @@ public class FunComparatorByTipo implements Comparator<FunInterface> {
     public int compare(FunInterface o1, FunInterface o2) {
         int r1 = o1.getTipo().compareTo(o2.getTipo());
         if(r1==0)
-            return new FunComparatorByCosto().compare(o1,o2);
+            return Integer.compare(o1.getCosto(),o2.getCosto());
         return r1;
     }
 }

@@ -29,6 +29,10 @@ public class Inventario {
     public void aggiungiSoldi(){
         this.contante+=CONTANTE_INIZ;
     }
-    public void rimuoviVentilatore(){}
-    public void aggiungiVentilatore(){}
+    public void rimuoviVentilatore(FunInterface i){
+        this.lista.remove(i);
+    }
+    public void aggiungiVentilatore(FunInterface i){
+        this.lista.add(i);
+    }
 }

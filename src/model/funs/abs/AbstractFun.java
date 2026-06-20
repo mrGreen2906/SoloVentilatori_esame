@@ -28,8 +28,8 @@ public abstract class AbstractFun implements FunInterface {
     public String getInfo() {
         return "Tipo FUN: " + this.getTipo() + " Alim: " + this.ali;
     }
-    public FunTipoEnum getTipo(){return this.tipoenum;}
-    public String getCosto(){ return ali.totCosto(this.prezzo)+"";}
+    public String getTipo(){return this.tipoenum.toString();}
+    public int getCosto(){ return ali.totCosto(this.prezzo);}
     public String getCostoInfo() {
         return "Costo: " + this.getCosto();
     }

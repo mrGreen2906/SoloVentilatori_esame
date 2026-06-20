@@ -6,8 +6,8 @@ public interface FunInterface {
     public String getNome();
 
     public String getInfo();
-    public FunTipoEnum getTipo();
-    public String getCosto();
+    public String getTipo();
+    public int getCosto();
     public String getCostoInfo();
 
 }
