@@ -28,12 +28,13 @@ public class Inventario {
     }
 
     public void aggiornaMese() throws NoMoneyException {
-        this.mesi+=1;
+
         if(this.spesaMese> this.contante){
             FunInterface funCostoso = trovaPiuCostoso();
             rimuoviVentilatore(funCostoso);
             throw new NoMoneyException();
         }
+        this.mesi+=1;
         this.contante-= this.spesaMese;
     }
 

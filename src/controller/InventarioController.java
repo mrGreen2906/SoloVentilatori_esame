@@ -36,13 +36,15 @@ public class InventarioController {
 
         try {
             this.m.aggiornaMese();
-            setInfo();
-            MainView.getInstance().getV().aggiornaVentilatori();
+
         } catch (NoMoneyException e) {
+
             Alert a = new Alert(Alert.AlertType.ERROR);
             a.setContentText("Fondi insufficienti, rimosso il ventilatore più costoso");
             a.showAndWait();
         }
+        setInfo();
+        MainView.getInstance().getV().aggiornaVentilatori();
     }
 
     public boolean isAbbonato(FunInterface f) {

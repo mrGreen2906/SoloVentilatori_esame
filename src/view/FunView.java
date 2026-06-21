@@ -15,7 +15,7 @@ public class FunView extends HBox {
         cer= new Circle(40);
         cer.setStrokeWidth(5);
         setColoreCerchio(false);
-        setBordo(true);
+        setBordo(true, false);
         v = new VBox();
         Text t1= new Text(tipo);
         Text t2 = new Text(info);
@@ -36,8 +36,11 @@ public class FunView extends HBox {
             cer.setFill(b ? Color.RED : Color.BLUE);
     }
 
-    public void setBordo(boolean bastano){
-        cer.setStroke(bastano ? Color.BLACK : Color.GRAY);
+    public void setBordo(boolean bastano, boolean abbonato){
+        if(abbonato)
+            cer.setStroke(bastano ? Color.BLACK : Color.GRAY);
+        else
+            cer.setStroke(Color.BLACK);
     }
 
 

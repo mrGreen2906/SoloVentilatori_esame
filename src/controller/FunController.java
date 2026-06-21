@@ -34,7 +34,8 @@ public class FunController{
 
     public void aggiornaColori(){
         InventarioController ic = MainView.getInstance().getI();
-        this.v.setColoreCerchio(ic.isAbbonato(this.i));
-        this.v.setBordo(ic.bastanoFondi(this.i));
+        boolean abb = ic.isAbbonato(this.i);
+        this.v.setColoreCerchio(abb);
+        this.v.setBordo(ic.bastanoFondi(this.i), abb);
     }
 }
