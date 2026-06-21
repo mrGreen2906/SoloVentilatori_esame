@@ -47,7 +47,7 @@ public class Inventario {
     }
 
     public void setSpesaMese(int spesaMese) {
-        this.spesaMese = spesaMese;
+        this.spesaMese += spesaMese;
     }
 
     public void aggiungiVentilatore(FunInterface i){
