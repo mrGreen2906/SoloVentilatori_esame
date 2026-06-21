@@ -4,9 +4,7 @@ import model.Inventario;
 import model.funs.FunInterface;
 import view.InventarioView;
 import view.MainView;
-import view.VetrinaView;
 
-import java.util.List;
 
 public class InventarioController {
     InventarioView v;
