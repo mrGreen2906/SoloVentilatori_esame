@@ -3,6 +3,7 @@ package controller;
 import model.Inventario;
 import model.funs.FunInterface;
 import view.InventarioView;
+import view.MainView;
 import view.VetrinaView;
 
 import java.util.List;
@@ -28,11 +29,13 @@ public class InventarioController {
     public void aggiungiSoldi(){
         this.m.aggiungiSoldi();
         setInfo();
+        MainView.getInstance().getV().aggiornaVentilatori();
     }
 
     public void prossimoMese(){
         this.m.aggiornaMese();
         setInfo();
+        MainView.getInstance().getV().aggiornaVentilatori();
     }
 
     public boolean isAbbonato(FunInterface f){
@@ -45,12 +48,13 @@ public class InventarioController {
 
     public void aggiungi(FunInterface f){
         this.m.aggiungiVentilatore(f);
-        setInfo();
+        MainView.getInstance().getV().aggiornaVentilatori();
     }
 
     public void rimuovi(FunInterface f){
         this.m.rimuoviVentilatore(f);
         setInfo();
+        MainView.getInstance().getV().aggiornaVentilatori();
     }
 
 }

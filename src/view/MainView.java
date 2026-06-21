@@ -62,4 +62,10 @@ public class MainView extends BorderPane {
         return i;
     }
 
+    public VetrinaController getV(){
+        return v;
+    }
+
+
+
 }

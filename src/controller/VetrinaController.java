@@ -45,8 +45,9 @@ public class VetrinaController {
 
 
     public void aggiornaVentilatori() {
-        for (FunController fc : this.cs)
-            this.v.getChildren().add(fc.getV());
+        for(FunController i :cs)
+            i.aggiornaColori();
+        MainView.getInstance().setCenter(this.v);
     }
 
     public void ordinaVentilatoriTipo() {
