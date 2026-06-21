@@ -10,43 +10,51 @@ import javafx.scene.layout.VBox;
 
 public class MainView extends BorderPane {
     static MainView m;
-    HBox box1;
+
     InventarioController i;
     VetrinaController v;
-    private MainView(){
-        i=new InventarioController();
+
+    private MainView() {
+        i = new InventarioController();
         this.setTop(i.getV());
 
-        v=new VetrinaController();
-
+        v = new VetrinaController();
+        this.setCenter(v.getV());
 
         Button b1 = new Button("Ordina per Tipo");
-        b1.setOnMouseClicked(event-> {});
+        b1.setOnMouseClicked(event -> {
+            v.ordinaVentilatoriTipo();
+        });
         Button b2 = new Button("Ordina per Costo");
+        b2.setOnMouseClicked(event -> {
+            v.ordinaVentilatoriCosto();
+        });
         VBox box = new VBox();
         box.getChildren().add(b1);
         box.getChildren().add(b2);
         box.setSpacing(10);
         this.setRight(box);
 
-        Button b3= new Button("Prox Mese");
+        Button b3 = new Button("Prox Mese");
+        b3.setOnMouseClicked(event -> {
+            i.prossimoMese();
+        });
         Button b4 = new Button("+100 Soldi");
+        b4.setOnMouseClicked(event -> {
+            i.aggiungiSoldi();
+        });
         VBox box2 = new VBox();
         box2.getChildren().add(b3);
         box2.getChildren().add(b4);
         box2.setSpacing(10);
         this.setLeft(box2);
 
-        this.box1=new HBox();
-        box1.setSpacing(5);
-        this.setCenter(box1);
-
 
     }
 
-    public static MainView getInstance(){
-        if(m==null)
-            m=new MainView();
+    public static MainView getInstance() {
+        if (m == null)
+            m = new MainView();
         return m;
     }
 

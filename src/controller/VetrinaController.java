@@ -6,6 +6,7 @@ import model.Vetrina;
 import model.funs.FunInterface;
 import model.funs.comparatori.FunComparatorByCosto;
 import model.funs.comparatori.FunComparatorByTipo;
+import view.MainView;
 import view.VetrinaView;
 
 import java.util.ArrayList;
@@ -25,8 +26,13 @@ public class VetrinaController {
             this.cs.add(fc);
         }
 
+        drawView();
+
     }
 
+    public VetrinaView getV() {
+        return v;
+    }
 
     private void drawView() {
         this.v = new VetrinaView();
@@ -38,20 +44,22 @@ public class VetrinaController {
     }
 
 
-    public void aggiornaVentilatori(){
-        for(FunController fc : this.cs)
+    public void aggiornaVentilatori() {
+        for (FunController fc : this.cs)
             this.v.getChildren().add(fc.getV());
     }
 
-    public void ordinaVentilatoriTipo(){
-this.m.sort(new FunComparatorByTipo());
-this.cs.sort(new FunComTipController());
-drawView();
+    public void ordinaVentilatoriTipo() {
+        this.m.sort(new FunComparatorByTipo());
+        this.cs.sort(new FunComTipController());
+        drawView();
+        MainView.getInstance().setCenter(this.v);
     }
 
-    public void ordinaVentilatoriCosto(){
+    public void ordinaVentilatoriCosto() {
         this.m.sort(new FunComparatorByCosto());
         this.cs.sort(new FunComCosController());
         drawView();
+        MainView.getInstance().setCenter(this.v);
     }
 }

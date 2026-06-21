@@ -18,12 +18,22 @@ public class InventarioController {
     }
 
     public void setInfo(){
-        v.setInfo(m.Info());
+        this.v.setInfo(m.Info());
     }
 
 
     public InventarioView getV() {
         return v;
+    }
+
+    public void aggiungiSoldi(){
+        this.m.aggiungiSoldi();
+        setInfo();
+    }
+
+    public void prossimoMese(){
+        this.m.aggiornaMese();
+        setInfo();
     }
 
 }
