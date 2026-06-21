@@ -61,6 +61,17 @@ public class Inventario {
         this.lista.remove(i);
     }
 
+    public boolean isAbbonato(FunInterface i){
+        return this.lista.contains(i);
+    }
+
+    public boolean fondiSufficienti(FunInterface i){
+        if(isAbbonato(i))
+            return this.contante>=this.spesaMese;
+        else
+            return this.contante>= this.spesaMese+i.getCosto();
+    }
+
     public ArrayList<FunInterface> getLista() {
         return lista;
     }

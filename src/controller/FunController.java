@@ -3,6 +3,7 @@ package controller;
 
 import model.funs.FunInterface;
 import view.FunView;
+import view.MainView;
 
 public class FunController{
     FunInterface i;
@@ -22,6 +23,18 @@ public class FunController{
     }
 
     public void operazione(){
+        InventarioController ic = MainView.getInstance().getI();
+        if (ic.isAbbonato(this.i)){
+            ic.rimuovi(this.i);
+        } else {
+            ic.aggiungi(this.i);
+        }
+        aggiornaColori();
+    }
 
+    public void aggiornaColori(){
+        InventarioController ic = MainView.getInstance().getI();
+        this.v.setColoreCerchio(ic.isAbbonato(this.i));
+        this.v.setBordo(ic.bastanoFondi(this.i));
     }
 }

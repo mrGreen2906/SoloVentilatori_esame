@@ -14,8 +14,10 @@ public class FunView extends HBox {
     VBox v;
 
     public FunView(String tipo, String info, String costo, FunController c){
-        cer= new Circle(30);
+        cer= new Circle(40);
         cer.setStrokeWidth(5);
+        setColoreCerchio(false);
+        setBordo(true);
         v = new VBox();
         Text t1= new Text(tipo);
         Text t2 = new Text(info);
@@ -28,7 +30,7 @@ public class FunView extends HBox {
         this.getChildren().add(cer);
         this.getChildren().add(v);
         this.setSpacing(10);
-        //this.setOnMouseClicked(event -> {c.});
+        this.setOnMouseClicked(event -> {c.operazione();});
 
     }
 
