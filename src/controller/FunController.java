@@ -30,7 +30,6 @@ public class FunController{
             ic.aggiungi(this.i);
         }
         aggiornaColori();
-        MainView.getInstance().getI().setInfo();
     }
 
     public void aggiornaColori(){

@@ -1,5 +1,6 @@
 package model;
 
+import model.exceptions.NoMoneyException;
 import model.funs.FunInterface;
 
 import java.util.ArrayList;
@@ -26,10 +27,26 @@ public class Inventario {
         return "Capitale: "+contante+" Spesa Mensile: "+spesaMese+" Mesi Trascorsi: "+mesi;
     }
 
-    public void aggiornaMese(){
+    public void aggiornaMese() throws NoMoneyException {
         this.mesi+=1;
+        if(this.spesaMese> this.contante){
+            FunInterface funCostoso = trovaPiuCostoso();
+            rimuoviVentilatore(funCostoso);
+            throw new NoMoneyException();
+        }
         this.contante-= this.spesaMese;
     }
+
+    private FunInterface trovaPiuCostoso(){
+        FunInterface max = this.lista.get(0);
+        for (FunInterface f : this.lista){
+            if (f.getCosto() > max.getCosto()){
+                max = f;
+            }
+        }
+        return max;
+    }
+
     public void aggiungiSoldi(){
         this.contante+=CONTANTE_INIZ;
     }
